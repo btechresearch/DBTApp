@@ -20,7 +20,7 @@ function showLoad(message, writeLog) {
 }
 
 // You can hard-code an add-only SAS URL here to log failures that might occur even before Server.cshtml is loaded.
-//window.logTable = azure.getTable('https://ACCOUNT.table.core.windows.net:443/TABLENAME?sv=2015-12-11&si=POLICY&tn=TABLENAME&sig=SIGNATURE');
+window.logTable = azure.getTable('https://dbtapp.table.core.windows.net/Logs?sv=2017-04-17&si=AddOnlyForWebApp&tn=logs&sig=kvKINbjsiYnlksdCjyXoM4ay8HrJzebvqQXm1iplJVs%3D');
 window.log = function (message) {
     console.log(message);
     window.logTable && azure.writeMessage(window.logTable, window.server ? window.server.userID : '.', message);
@@ -36,6 +36,7 @@ $(function main() {
     var hub = new Hub($('#Hub'), data);
     var agent = new Agent($('#mainAgent'), data);
     var diarycards = new DiaryCards($('#DiaryCards'), data);
+    var modelsofemotions = new ModelsOfEmotions($('#ModelsOfEmotions'), data);
     var calendar = new Calendar($('#Calendar'), data);
     var notepad = new Notepad($('#Notepad'), data);
     var library = new Library($('#Library'), data);
@@ -45,6 +46,7 @@ $(function main() {
     $(data).on('loaded change', update);
     $(hub).on('loaded change', update);
     $(diarycards).on('loaded change', update);
+    $(modelsofemotions).on('loaded change', update);
     $(calendar).on('loaded change', update);
     $(notepad).on('loaded change', update);
 
@@ -127,6 +129,7 @@ $(function main() {
             loads.push(notepad.load(server.SAS_notes, server.userID));
             loads.push(calendar.load(server.SAS_calendar, server.userID));
             loads.push(diarycards.load(server.SAS_diarycards, server.SAS_content, server.userID));
+            loads.push(modelsofemotions.load(sas.SAS_modelsofemotions, sas.SAS_content, sas.SAS_user));
             loads.push(data.load(server.SAS_data, server.userID));
             
             $.when.apply($, loads).done(finish).fail(function fail(jqxhr, textStatus, error) {

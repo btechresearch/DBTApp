@@ -245,6 +245,7 @@
     <Content Include="Scripts\azure.js" />
     <Content Include="Scripts\diarycards.js" />
     <Content Include="Scripts\calendar.js" />
+    <Content Include="Scripts\modelsofemotions.js" />
     <Content Include="Scripts\store.js" />
     <Content Include="Scripts\library.js" />
     <Content Include="Scripts\skills.js" />
@@ -266,6 +267,7 @@
     <Content Include="Styles\Images\sound.gif" />
     <Content Include="Styles\diarycards.css" />
     <Content Include="Styles\calendar.css" />
+    <Content Include="Styles\modelsofemotions.css" />
     <Content Include="Styles\store.css" />
     <Content Include="Styles\library.css" />
     <Content Include="Styles\skills.css" />

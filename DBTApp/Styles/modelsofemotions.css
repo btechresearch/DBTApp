@@ -1,0 +1,449 @@
+﻿.modelsofemotions {
+    display: -webkit-flex; /* For my Samsung Galaxy S4 test device running Android 4.4 */
+    display: flex;
+    flex-direction: column;
+}
+
+    .modelsofemotions > .search {
+        background-color: #F2F2F2;
+        border: 0px;
+        border-radius: 5px;
+        height: 42px;
+        padding: 0px 10px;
+        margin: 12px 0px;
+    }
+
+    .modelsofemotions > .models {
+        display: -webkit-flex; /* For my Samsung Galaxy S4 test device running Android 4.4 */
+        display: flex;
+        flex-wrap: wrap;
+        margin: 6px -6px;
+    }
+
+        .modelsofemotions > .models > .model-container,
+        .modelsofemotions > .models > .spacer {
+            position: relative;
+            flex: 100px;
+            margin: 6px;
+        }
+
+            .modelsofemotions > .models > .model-container::before {
+                content: "";
+                display: block;
+                float: left;
+                padding-top: 152%;
+            }
+
+        .modelsofemotions > .models > .spacer {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+
+        .modelsofemotions > .models > .model-container > .model > .model-selector {
+            display: -webkit-flex; /* For my Samsung Galaxy S4 test device running Android 4.4 */
+            display: flex;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            align-items: center;
+            justify-content: center;
+            background-color: #39B54A;
+            color: white;
+            height: 24px;
+            width: 24px;
+            margin: 0px;
+            visibility: collapse;
+            z-index: 1;
+        }
+
+            .modelsofemotions > .models > .model-container > .model > .model-selector > input[type="checkbox"] {
+                display: none;
+            }
+
+        .modelsofemotions > .models.showDelete > .model-container > .model::after {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            background-color: white;
+            opacity: .75;
+        }
+
+        .modelsofemotions > .models.showDelete > .model-container > .model > .model-selector {
+            visibility: visible;
+        }
+
+        .modelsofemotions > .models > .model-container > .model.selected > .model-selector::before {
+            content: '✘';
+        }
+
+    .modelsofemotions > .model-editor {
+        display: -webkit-flex; /* For my Samsung Galaxy S4 test device running Android 4.4 */
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        padding: 0px 10px;
+        background: white;
+    }
+
+        .modelsofemotions > .model-editor > .model-title {
+            background-color: #F2F2F2;
+            border: 0px;
+            border-radius: 5px;
+            height: 42px;
+            padding: 0px 10px;
+            margin: 12px 0px;
+        }
+
+        .modelsofemotions > .model-editor > .model-date {
+            font-weight: bold;
+            margin: 8px;
+        }
+
+        .modelsofemotions > .model-editor > .model-content {
+            flex: 1;
+            margin: 8px;
+            border: 0px;
+            padding: 0px;
+        }
+
+    .modelsofemotions > .model-conversation {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        background: white;
+    }
+
+
+.model {
+    display: -webkit-flex; /* For my Samsung Galaxy S4 test device running Android 4.4 */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+    .model > .model-row {
+        flex: 1 0 0px;
+        display: -webkit-flex; /* For my Samsung Galaxy S4 test device running Android 4.4 */
+        display: flex;
+    }
+
+        .model > .model-row > * {
+            flex: 1 0 0px;
+            margin: 1px;
+            border: 2px solid;
+        }
+
+    .model > .model-row1 > *,
+    .model > .model-row1 > *::before,
+    .model > .model-row1 > *::after {
+        background: #39B54A;
+        border-color: #39B54A;
+        color: white;
+    }
+
+        .model > .model-row1 > *.model-highlight,
+        .model > .model-row1 > *.model-highlight::before,
+        .model > .model-row1 > *.model-highlight::after {
+            color: gold;
+        }
+
+        .model > .model-row1 > *.model-highlight {
+            border-color: gold;
+        }
+
+    .model > .model-row2 > *,
+    .model > .model-row2 > *::before,
+    .model > .model-row2 > *::after,
+    .model > .model-row5 > *,
+    .model > .model-row5 > *::before,
+    .model > .model-row5 > *::after {
+        background: #808080;
+        border-color: #808080;
+        color: white;
+    }
+
+        .model > .model-row2 > *.model-highlight,
+        .model > .model-row2 > *.model-highlight::before,
+        .model > .model-row2 > *.model-highlight::after,
+        .model > .model-row5 > *.model-highlight,
+        .model > .model-row5 > *.model-highlight::before,
+        .model > .model-row5 > *.model-highlight::after {
+            color: gold;
+        }
+
+        .model > .model-row2 > *.model-highlight,
+        .model > .model-row5 > *.model-highlight {
+            border-color: gold;
+        }
+
+    .model > .model-row3 > *,
+    .model > .model-row3 > *::before,
+    .model > .model-row3 > *::after,
+    .model > .model-row4 > *,
+    .model > .model-row4 > *::before,
+    .model > .model-row4 > *::after,
+    .model > .model-row6 > *,
+    .model > .model-row6 > *::before,
+    .model > .model-row6 > *::after {
+        background: #E6E6E6;
+        border-color: #E6E6E6;
+        color: #333333;
+    }
+
+        .model > .model-row3 > *.model-highlight,
+        .model > .model-row3 > *.model-highlight::before,
+        .model > .model-row3 > *.model-highlight::after,
+        .model > .model-row4 > *.model-highlight,
+        .model > .model-row4 > *.model-highlight::before,
+        .model > .model-row4 > *.model-highlight::after,
+        .model > .model-row6 > *.model-highlight,
+        .model > .model-row6 > *.model-highlight::before,
+        .model > .model-row6 > *.model-highlight::after {
+            color: #DCBA00;
+        }
+
+        .model > .model-row3 > *.model-highlight,
+        .model > .model-row4 > *.model-highlight,
+        .model > .model-row6 > *.model-highlight {
+            border-color: gold;
+        }
+
+    .model > .model-row > .model-element {
+        display: -webkit-flex; /* For my Samsung Galaxy S4 test device running Android 4.4 */
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: stretch;
+        overflow: hidden;
+    }
+
+        .model > .model-row > .model-element::before,
+        .model > .model-row > .model-element::after {
+            /*position: absolute;*/ /* Can use absolute positioning to exactly center the description element. */
+            left: 10px;
+            right: 10px;
+            white-space: nowrap;
+        }
+
+        .model > .model-row > .model-element::after {
+            bottom: 10px;
+        }
+
+        .model > .model-row > .model-element > .model-description {
+            flex-grow: 1;
+            display: -webkit-flex; /* For my Samsung Galaxy S4 test device running Android 4.4 */
+            display: flex;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            align-items: center;
+            word-break: break-all;
+            hyphens: auto;
+        }
+
+    .model.full > .model-row > .model-emotion {
+        border-radius: 0px 20px 0px 0px;
+    }
+
+    .model.full > .model-row > .model-event {
+        border-radius: 0px 0px 20px 20px;
+    }
+
+    .model.full > .model-row > .model-urges {
+        border-radius: 20px 0px 0px 0px;
+    }
+
+    .model.full > .model-row > .model-changes {
+        border-radius: 0px 20px 0px 0px;
+    }
+
+    .model.full > .model-row > .model-actions {
+        border-radius: 0px 0px 0px 20px;
+    }
+
+    .model.full > .model-row > .model-sensations {
+        border-radius: 0px 0px 20px 0px;
+    }
+
+    .model.full > .model-row > .model-interpretations {
+        border-radius: 20px 0px 0px 0px;
+    }
+
+    .model.full > .model-row > .model-vulnerabilities {
+        border-radius: 0px 20px 0px 0px;
+    }
+
+    .model.full > .model-row > .model-effects {
+        border-radius: 0px 0px 0px 20px;
+    }
+
+    .model.full > .model-row2,
+    .model.full > .model-row4 {
+        margin-bottom: 4px;
+    }
+
+    .model.full > .model-row6 {
+        margin-bottom: 10px;
+    }
+
+    .model.full > .model-row > .model-element {
+        flex: 1 0 0px;
+        padding: 10px;
+        margin: 2px;
+    }
+
+        .model.full > .model-row > .model-element > .model-description {
+            font-size: 11px;
+        }
+
+    .model.full > .model-row > .model-emotion > .model-description {
+        font-size: 20px;
+        font-weight: bold;
+        align-self: center;
+    }
+
+    .model.full > .model-row > .model-emotion::before {
+        content: 'Emotion Name';
+    }
+
+    .model.full > .model-row > .model-event::before {
+        content: 'Prompting Event';
+    }
+
+    .model.full > .model-row > .model-urges::before {
+        content: 'Urges';
+    }
+
+    .model.full > .model-row > .model-changes::before {
+        content: 'Biological Changes';
+    }
+
+    .model.full > .model-row > .model-actions::before {
+        content: 'Actions';
+    }
+
+    .model.full > .model-row > .model-words::before {
+        content: 'Words';
+    }
+
+    .model.full > .model-row > .model-sensations::before {
+        content: 'Face/Body';
+    }
+
+    .model.full > .model-row > .model-interpretations::before {
+        content: 'Interpretations';
+    }
+
+    .model.full > .model-row > .model-vulnerabilities::before {
+        content: 'Vulnerabilities';
+    }
+
+    .model.full > .model-row > .model-effects::after {
+        content: 'Aftereffects';
+        text-align: right;
+    }
+
+    .model.thumbnail {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        white-space: nowrap;
+    }
+
+        .model.thumbnail > .model-row2,
+        .model.thumbnail > .model-row4 {
+            margin-bottom: 2px;
+        }
+
+        .model.thumbnail > .model-row .model-description {
+            padding: 0px 10px;
+        }
+
+        .model.thumbnail > .model-row > .model-emotion {
+            border-radius: 0px 10px 0px 0px;
+        }
+
+        .model.thumbnail > .model-row > .model-event {
+            border-radius: 0px 0px 10px 10px;
+        }
+
+        .model.thumbnail > .model-row > .model-urges {
+            border-radius: 10px 0px 0px 0px;
+        }
+
+        .model.thumbnail > .model-row > .model-changes {
+            border-radius: 0px 10px 0px 0px;
+        }
+
+        .model.thumbnail > .model-row > .model-actions {
+            border-radius: 0px 0px 0px 10px;
+        }
+
+        .model.thumbnail > .model-row > .model-sensations {
+            border-radius: 0px 0px 10px 0px;
+        }
+
+        .model.thumbnail > .model-row > .model-interpretations {
+            border-radius: 10px 0px 0px 0px;
+        }
+
+        .model.thumbnail > .model-row > .model-vulnerabilities {
+            border-radius: 0px 10px 0px 0px;
+        }
+
+        .model.thumbnail > .model-row > .model-effects {
+            border-radius: 0px 0px 0px 10px;
+        }
+
+    .model.icon {
+        width: 29px;
+        height: 47px;
+        margin: 1px;
+    }
+
+        .model.icon > .model-row > .model-emotion {
+            border-radius: 0px 9px 0px 0px;
+        }
+
+        .model.icon > .model-row > .model-event {
+            border-radius: 0px 0px 9px 9px;
+        }
+
+        .model.icon > .model-row > .model-urges {
+            border-radius: 9px 0px 0px 0px;
+        }
+
+        .model.icon > .model-row > .model-changes {
+            border-radius: 0px 9px 0px 0px;
+        }
+
+        .model.icon > .model-row > .model-actions {
+            border-radius: 0px 0px 0px 9px;
+        }
+
+        .model.icon > .model-row > .model-sensations {
+            border-radius: 0px 0px 9px 0px;
+        }
+
+        .model.icon > .model-row > .model-interpretations {
+            border-radius: 9px 0px 0px 0px;
+        }
+
+        .model.icon > .model-row > .model-vulnerabilities {
+            border-radius: 0px 9px 0px 0px;
+        }
+
+        .model.icon > .model-row > .model-effects {
+            border-radius: 0px 0px 0px 9px;
+        }
