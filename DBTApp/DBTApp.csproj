@@ -179,6 +179,7 @@
     <Content Include="Icons\Camera_Icon.png" />
     <Content Include="Icons\Checkmark_Icon.png" />
     <Content Include="Icons\Close_Icon.png" />
+    <Content Include="Icons\ContactImage.png" />
     <Content Include="Icons\Conversation_Icon.png" />
     <Content Include="Icons\DiaryCard_Icon.png" />
     <Content Include="Icons\eChelsey_Expanded.png" />
