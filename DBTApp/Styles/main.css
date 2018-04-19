@@ -430,7 +430,7 @@ button {
     }
 
 #mainButton {
-    background-image: url(/Icons/PocketSkills_Logo.png);
+    background-image: url(/Icons/DBTApp_Logo.png);
     background-size: 75%;
 }
 
@@ -770,7 +770,7 @@ button {
 }
 
     .firstRun .firstRunLogo {
-        background-image: url(/Icons/PocketSkills_Logo.png);
+        background-image: url(/Icons/DBTApp_Logo.png);
         background-position: center;
         height: 50px;
     }

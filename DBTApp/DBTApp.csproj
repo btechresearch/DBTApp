@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PocketSkills</RootNamespace>
-    <AssemblyName>PocketSkills</AssemblyName>
+    <RootNamespace>DBTApp</RootNamespace>
+    <AssemblyName>DBTApp</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -24,12 +24,10 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <ApplicationInsightsResourceId>/subscriptions/f2a8fe60-a036-44b7-aa91-c03800b5e5fa/resourcegroups/PocketSkillsResourceGroup/providers/microsoft.insights/components/PocketSkills</ApplicationInsightsResourceId>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
-    <ApplicationInsightsAnnotationResourceId>/subscriptions/f2a8fe60-a036-44b7-aa91-c03800b5e5fa/resourceGroups/PocketSkillsResourceGroup/providers/microsoft.insights/components/pocketskills</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -222,7 +220,7 @@
     <Content Include="Icons\OnGoingStatus_Icon.png" />
     <Content Include="Icons\play-video.png" />
     <Content Include="Icons\Play_Icon.png" />
-    <Content Include="Icons\PocketSkills_Logo.png" />
+    <Content Include="Icons\DBTApp_Logo.png" />
     <Content Include="Icons\purchased-video.png" />
     <Content Include="Icons\RightArrow_Icon.png" />
     <Content Include="Icons\SatisfiedStatus_Icon.png" />
