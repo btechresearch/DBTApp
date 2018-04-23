@@ -55,13 +55,14 @@ $(function main() {
         showLoad("Error loading " + settings.url, writeLog);
         if (jqXHR && jqXHR.responseText) {
             $('#mainLoadingStatus').append($('<div>').html(jqXHR.responseText));
-        }
-        try {
-            showLoad("Event: " + $.stringify(event), writeLog);
-            showLoad("XHR: " + $.stringify(jqXHR), writeLog);
-            showLoad("Error: " + $.stringify(error), writeLog);
-        } catch (e) {
-            showLoad("Exception: " + e, writeLog);
+        } else {
+            try {
+                showLoad("Event: " + $.stringify(event), writeLog);
+                showLoad("XHR: " + $.stringify(jqXHR), writeLog);
+                showLoad("Error: " + $.stringify(error), writeLog);
+            } catch (e) {
+                showLoad("Exception: " + e, writeLog);
+            }
         }
     });
 
@@ -106,12 +107,12 @@ $(function main() {
         window.logTable = azure.getTable(server.SAS_logs);
 
         $('#mainInvitationStatus').empty();
-        if (server.SAS_error || !server.SAS_content) {
-            showLoad("Showing Invitation Page... " + (server.SAS_error || ""));
+        if (server.error || !server.SAS_content) {
+            showLoad("Showing Invitation Page... " + (server.error || ""));
             $('#mainLoadingScreen').fadeOut('slow');
 
             $("#mainInvitationBlocker").show();
-            $('#mainInvitationError').text(server.SAS_error);
+            $('#mainInvitationError').text(server.error);
             setTimeout(function () { $('#mainInvitationError').effect('bounce'); });
         } else {
             $("#mainInvitationBlocker").fadeOut('slow');
@@ -131,11 +132,10 @@ $(function main() {
             loads.push(diarycards.load(server.SAS_diarycards, server.SAS_content, server.userID));
             loads.push(modelsofemotions.load(sas.SAS_modelsofemotions, sas.SAS_content, sas.SAS_user));
             loads.push(data.load(server.SAS_data, server.userID));
-            
+
             $.when.apply($, loads).done(finish).fail(function fail(jqxhr, textStatus, error) {
-                showLoad("Error Loading Data: '" + textStatus + "', '" + error + "'.");
+                showLoad(error + ": " + textStatus);
                 $('#mainLoadingScreen').show();
-                $('#mainLoadingStatus').append($('<a href="/">Retry</a>'));
             });
 
             $('#mainSignedInPic').attr('src', 'https://apis.live.net/v5.0/' + server.userID + '/picture?type=small');
@@ -151,7 +151,7 @@ $(function main() {
         loaded = Date();
         log("Content and Data Loaded on " + loaded);
         data.set('Login', location.href);
-        
+
         // We store the acceptance of the First Run Experience per-device.
         if (!localStorage.getItem('FirstRunAccepted')) {
             showLoad("Loading First Run Experience...");
@@ -171,8 +171,8 @@ $(function main() {
 
         log("User entered invitation code '" + code + "'")
 
-        if (!/[A-Za-z]{6}/.test(code)) {
-            $('#mainInvitationStatus').text("The code should be exactly six letters.");
+        if (!/[A-Za-z0-9]{6}/.test(code)) {
+            $('#mainInvitationStatus').text("The code should be exactly six letters or numbers.");
             setTimeout(function () { $('#mainInvitationStatus').effect('bounce'); });
         } else {
             $('#mainInvitationStatus').text("Checking code...");
@@ -473,12 +473,12 @@ $(function main() {
             $points.animate({
                 Points: +data.get('Points') || 0
             }, {
-                duration: 2000,
-                step: function (now) {
-                    $(this).text(Math.ceil(now));
-                },
-                queue: false
-            });
+                    duration: 2000,
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    },
+                    queue: false
+                });
         }
     }
 
