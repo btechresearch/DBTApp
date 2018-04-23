@@ -130,7 +130,7 @@ $(function main() {
             loads.push(notepad.load(server.SAS_notes, server.userID));
             loads.push(calendar.load(server.SAS_calendar, server.userID));
             loads.push(diarycards.load(server.SAS_diarycards, server.SAS_content, server.userID));
-            loads.push(modelsofemotions.load(sas.SAS_modelsofemotions, sas.SAS_content, sas.SAS_user));
+            loads.push(modelsofemotions.load(server.SAS_modelsofemotions, server.SAS_content, server.SAS_user));
             loads.push(data.load(server.SAS_data, server.userID));
 
             $.when.apply($, loads).done(finish).fail(function fail(jqxhr, textStatus, error) {
