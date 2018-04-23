@@ -40,8 +40,7 @@ function Content(name) {
                             _this.cache[row.ID || row.RowKey] = row;
                         });
                     } else {
-                        log("Error loading content for '" + name + "':\n" + status + "\n" + (error || {}).responseText);
-                        throw error;
+                        deferred.reject(_, status, "Error loading content for '" + name + "':\n" + (_.responseText || error));
                     }
                 }).done(function () {
                     _this.loaded = new Date();
@@ -51,8 +50,7 @@ function Content(name) {
                     $(_this).triggerHandler('loaded');
                 }).then(deferred.resolve, deferred.reject, deferred.notify);
             } else {
-                log("Error loading latest partition key for '" + name + "':\n" + status + "\n" + (error || {}).responseText);
-                throw error;
+                deferred.reject(_, status, "Error loading latest partition key for '" + name + "':\n" + (_.responseText || error));
             }
         }).fail(deferred.reject);
 
@@ -111,7 +109,7 @@ function Settings() {
                             $(_this).triggerHandler('change', setting.Setting);
                         });
                     } else {
-                        log("Error loading settings:\n" + status + "\n" + (error || {}).responseText);
+                        deferred.reject(_, status, "Error loading settings:\n" + (_.responseText || error));
                     }
                 }).done(function () {
                     _this.loaded = new Date();
@@ -121,8 +119,7 @@ function Settings() {
                     $(_this).triggerHandler('loaded');
                 }).then(deferred.resolve, deferred.reject, deferred.notify);
             } else {
-                log("Error loading latest partition key for settings:\n" + status + "\n" + (error || {}).responseText);
-                throw error;
+                deferred.reject(_, status, "Error loading latest partition key for settings:\n" + (_.responseText || error));
             }
         }).fail(deferred.reject);
 
@@ -221,8 +218,7 @@ function Data() {
                     }
                 });
             } else {
-                log("Error loading data:\n" + status + "\n" + (error || {}).responseText);
-                throw error;
+                throw "Error loading data:\n" + status + "\n" + (_.responseText || error);
             }
         }).done(function () {
             _this.loaded = new Date();
