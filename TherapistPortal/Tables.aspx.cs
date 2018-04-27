@@ -54,9 +54,9 @@ namespace TherapistPortal
             if (!Request.IsLocal)
             {
                 userID = Global.GetIDFromWindowsLive(Request);
-                if (userID != "1168257465c1ac6e" && userID != "ad54dbba2794afdd" && userID != "ee71f4adcd064186" && userID != "5268d9b53385da76")
+                if (!Environment.GetEnvironmentVariable("TherapistPortalUserIDs").Contains(userID))
                 {
-                    throw new UnauthorizedAccessException("Only certain people can access this page.");
+                    throw new UnauthorizedAccessException("Your User ID (" + userID + ") is not in TherapistPortalUserIDs and therefore cannot access this page.");
                 }
             }
 
